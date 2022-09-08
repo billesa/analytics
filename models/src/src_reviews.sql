@@ -1,15 +1,11 @@
-WITH raw_listings AS (
-    SELECT * FROM "AIRBNB"."RAW"."RAW_LISTINGS"
+WITH raw_reviews AS (
+    SELECT * FROM "AIRBNB"."RAW"."RAW_REVIEWS"
 )
 SELECT
- id AS listing_id,
- name AS listing_name,
- listing_url,
- room_type,
- minimum_nights,
- host_id,
- price AS price_str,
- created_at,
- updated_at
+ listing_id,
+ date AS review_date,
+ reviewer_name,
+ comments AS review_text,
+ sentiment AS review_sentiment
 FROM
- raw_listings
+ raw_reviews
